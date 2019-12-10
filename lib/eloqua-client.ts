@@ -5,7 +5,7 @@ export default class EloquaClient {
     userName: string,
     password: string,
     ): EloquaClient {
-      
+      return null;
     }
 
   private constructor(
