@@ -7,5 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mehrdad Youssefi (themehrdad@gmail.com)",
-  "license": "ISC"
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/themehrdad/eloqua-rest-api.git"
+  },
+  "dependencies": {
+    "buffer": "^5.4.3",
+    "rxjs": "^6.5.3"
+  }
 }
