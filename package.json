@@ -4,17 +4,21 @@
   "description": "eloqua-rest-api",
   "main": "index.js",
   "scripts": {
-    "test": "yarn jest"
+    "test": "yarn jest --testPathIgnorePatterns='e2e-tests/'",
+    "e2e-test": "yarn jest --rootDir='lib/e2e-tests'",
+    "build": "tsc"
   },
   "author": "Mehrdad Youssefi (themehrdad@gmail.com)",
   "license": "MIT",
   "repository": "https://github.com/themehrdad/eloqua-rest-api.git",
   "dependencies": {
     "buffer": "^5.4.3",
-    "rxjs": "^6.5.3"
+    "rxjs": "^6.5.3",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.16",
     "jest": "^24.9.0",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.3"
