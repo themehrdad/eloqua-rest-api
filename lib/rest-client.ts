@@ -11,11 +11,11 @@ export default class RestClient {
   }
 
   public getList<T>(
-    url: string,
+    endpointPath: string,
     options: IListRequestOptions,
   ): Promise<IListResponse<T>> {
     return Axios.get(
-      this.makeAbsoluteUrl(url),
+      this.makeAbsoluteUrl(endpointPath),
       this.getRestConfig(options),
     ).then((response) => {
       return this.readResponse<IListResponse<T>>(response);

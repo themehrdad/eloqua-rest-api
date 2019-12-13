@@ -1,9 +1,10 @@
 import IBaseUrl from "./base-urls/base-url";
 import BaseUrlClient from "./base-urls/base-url-client";
 import IEloquaCredentials from "./eloqua-credentials";
+import LandingPageClient from "./landing-pages/landing-pages-client";
+import RestClient from "./rest-client";
 
 export default class EloquaClient {
-
   public static login(
     siteName: string,
     userName: string,
@@ -15,11 +16,11 @@ export default class EloquaClient {
       userName,
     };
     return this.getBaseUrls(credentials)
-    .then((baseUrls) => {
-      return new EloquaClient(credentials, baseUrls);
-    }).catch((error) => {
-      throw error;
-    });
+      .then((baseUrls) => {
+        return new EloquaClient(credentials, baseUrls);
+      }).catch((error) => {
+        throw error;
+      });
   }
 
   private static getBaseUrls(
@@ -28,9 +29,19 @@ export default class EloquaClient {
     return BaseUrlClient.get(credentials);
   }
 
+  private restClient: RestClient;
+  private landingPages: LandingPageClient;
+
+  public get LandingPages() {
+    return this.landingPages;
+  }
+
   private constructor(
     private credentials: IEloquaCredentials,
     private baseUrls: IBaseUrl,
   ) {
+    this.restClient = new RestClient(credentials, baseUrls);
+    this.landingPages = new LandingPageClient(this.restClient);
+
   }
 }
