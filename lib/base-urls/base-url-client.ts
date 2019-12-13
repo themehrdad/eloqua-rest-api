@@ -1,40 +1,27 @@
-import { Observable } from "rxjs";
-import { ajax } from "rxjs/ajax";
-import { map } from "rxjs/operators";
+import * as axios from "axios";
 import IEloquaCredentials from "../eloqua-credentials";
-import getAuthoizationHeader from "../utils/get-authorization-header";
 import IBaseUrl from "./base-url";
-
-const { XMLHttpRequest } = require("xmlhttprequest");
 
 const loginUrl = "https://login.eloqua.com/id";
 
-function createXHR() {
-  return new XMLHttpRequest();
-}
 export default class BaseUrlClient {
   public static get(
     credentials: IEloquaCredentials,
-  ): Observable<IBaseUrl> {
-    return ajax({
-      createXHR,
-      crossDomain: true,
-      headers: {
-        authorization: `Basic ${getAuthoizationHeader(credentials)}`,
+  ): Promise<IBaseUrl> {
+    return axios.default.get(
+      loginUrl, {
+        auth: {
+          password: credentials.password,
+          username: `${credentials.siteName}\\${credentials.userName}`,
+        },
       },
-      method: "GET",
-      url: loginUrl,
-      withCredentials: true,
-    })
-      .pipe(
-        map((response) => {
-          if (response.status === 200 && typeof response.response === "object") {
-            return response.response as IBaseUrl;
-          } else {
-            throw Error(response.responseText);
-          }
-        }),
-      );
+    ).then((response) => {
+      if (response.status === 200 && typeof response.data === "object") {
+        return response.data as IBaseUrl;
+      } else {
+        throw Error(response.statusText);
+      }
+    });
   }
 
   private constructor() { }

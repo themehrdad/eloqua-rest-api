@@ -11,7 +11,7 @@ describe("BaseUrlClient", () => {
 
   it("Gets the base url information", (done) => {
     const baseUrlObservable = BaseUrlClient.get(credentials);
-    baseUrlObservable.subscribe((result) => {
+    baseUrlObservable.then((result) => {
       expect(result).not.toBeNull();
       expect(result).not.toBeUndefined();
       expect(result.urls.base.length).toBeGreaterThan(0);

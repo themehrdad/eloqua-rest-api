@@ -25,7 +25,7 @@ export default class EloquaClient {
   private static getBaseUrls(
     credentials: IEloquaCredentials,
   ): Promise<IBaseUrl> {
-    return BaseUrlClient.get(credentials).toPromise();
+    return BaseUrlClient.get(credentials);
   }
 
   private constructor(
