@@ -1,11 +1,11 @@
-import {Observable} from "rxjs";
-import {ajax} from "rxjs/ajax";
-import {map} from "rxjs/operators";
+import { Observable } from "rxjs";
+import { ajax } from "rxjs/ajax";
+import { map } from "rxjs/operators";
 import IEloquaCredentials from "../eloqua-credentials";
 import getAuthoizationHeader from "../utils/get-authorization-header";
 import IBaseUrl from "./base-url";
 
-const {XMLHttpRequest} = require("xmlhttprequest");
+const { XMLHttpRequest } = require("xmlhttprequest");
 
 const loginUrl = "https://login.eloqua.com/id";
 
@@ -26,12 +26,16 @@ export default class BaseUrlClient {
       url: loginUrl,
       withCredentials: true,
     })
-    .pipe(
-      map((response) => {
-        return response.response as IBaseUrl;
-      }),
-    );
+      .pipe(
+        map((response) => {
+          if (response.status === 200) {
+            return response.response as IBaseUrl;
+          } else {
+            throw Error(response.responseText);
+          }
+        }),
+      );
   }
 
-  private constructor() {}
+  private constructor() { }
 }

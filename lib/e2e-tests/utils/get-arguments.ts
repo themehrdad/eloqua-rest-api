@@ -5,7 +5,7 @@ export default function getArguments(): IEloquaCredentials {
   return {
     password: allArgs["--elq-password"],
     siteName: allArgs["--elq-site-name"],
-    userName: allArgs["--elq-user-name"]
+    userName: allArgs["--elq-user-name"],
   };
 }
 
