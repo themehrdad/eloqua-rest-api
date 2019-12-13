@@ -42,3 +42,6 @@ yarn.lock
 
 # config folder
 .config
+
+# visual studio code
+.vscode

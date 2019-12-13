@@ -28,7 +28,7 @@ export default class BaseUrlClient {
     })
       .pipe(
         map((response) => {
-          if (response.status === 200) {
+          if (response.status === 200 && typeof response.response === "object") {
             return response.response as IBaseUrl;
           } else {
             throw Error(response.responseText);
