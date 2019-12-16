@@ -1,12 +1,15 @@
 {
   "name": "eloqua-rest-api",
-  "version": "1.0.1",
-  "description": "eloqua-rest-api",
-  "main": "index.js",
+  "version": "1.0.2",
+  "description": "A REST API client for Oracle Eloqua",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "yarn jest --testPathIgnorePatterns='e2e-tests/'",
     "e2e-test": "yarn jest --rootDir='lib/e2e-tests'",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test && yarn e2e-test"
   },
   "author": "Mehrdad Youssefi (themehrdad@gmail.com)",
   "license": "MIT",
@@ -22,5 +25,16 @@
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.3"
   },
-  "private": false
+  "private": false,
+  "keywords": [
+    "eloqua",
+    "rest api"
+  ],
+  "files": [
+    "lib",
+    "dist",
+    "READE.md",
+    "package.json",
+    "tsconfig.json"
+  ]
 }
