@@ -39,7 +39,7 @@ jobs:
       # run tests!
       - run: yarn test --collectCoverage=true --outputFile=test-results.json --json
       - store_artifacts:
-        path: coverage
+          path: coverage
       - codecov/upload:
-        file: test-results.json
-        token: 03c25f0d-758c-4a13-b3f8-3898c73d5107
+          file: test-results.json
+          token: 03c25f0d-758c-4a13-b3f8-3898c73d5107
