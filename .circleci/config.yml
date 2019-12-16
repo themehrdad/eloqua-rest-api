@@ -3,6 +3,8 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
+orbs:
+  codecov: codecov/codecov@1.0.2
 jobs:
   build:
     docker:
@@ -35,4 +37,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn test
+      - run: yarn test --collectCoverage=true --outputFile=test-results.json --json
+      - store_artifacts:
+        path: coverage
+      - codecov/upload:
+        file: test-results.json
+        token: 03c25f0d-758c-4a13-b3f8-3898c73d5107
