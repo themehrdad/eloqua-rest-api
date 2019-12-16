@@ -9,7 +9,7 @@
     "e2e-test": "yarn jest --rootDir='lib/e2e-tests'",
     "build": "tsc",
     "prepare": "yarn build",
-    "prepublishOnly": "yarn test && yarn e2e-test"
+    "prepublishOnly": "yarn test"
   },
   "author": "Mehrdad Youssefi (themehrdad@gmail.com)",
   "license": "MIT",
