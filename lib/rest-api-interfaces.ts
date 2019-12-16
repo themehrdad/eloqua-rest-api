@@ -11,6 +11,6 @@ export interface IListRequestOptions {
   depth?: string;
   lastUpdatedAt?: number;
   orderBy?: string;
-  page?: string;
+  page?: number;
   search?: string;
 }
