@@ -12,10 +12,10 @@ export default class RestClient {
 
   public getList<T>(
     endpointPath: string,
-    options: IListRequestOptions,
+    options?: IListRequestOptions,
   ): Promise<IListResponse<T>> {
     return Axios.get(
-      this.makeAbsoluteUrl(endpointPath),
+      this.makeStandardAbsoluteUrl(endpointPath),
       this.getRestConfig(options),
     ).then((response) => {
       return this.readResponse<IListResponse<T>>(response);
@@ -24,7 +24,7 @@ export default class RestClient {
     });
   }
 
-  private getRestConfig(options: {[key: string]: any}): AxiosRequestConfig {
+  private getRestConfig(options?: {[key: string]: any}): AxiosRequestConfig {
     return {
       auth: {
         password: this.credentials.password,
@@ -34,8 +34,8 @@ export default class RestClient {
     };
   }
 
-  private makeAbsoluteUrl(apiPath: string) {
-    return `${this.baseUrls.urls.apis.rest.standard}${apiPath}`;
+  private makeStandardAbsoluteUrl(apiPath: string) {
+    return `${this.baseUrls.urls.base}${this.baseUrls.urls.apis.rest.standard}${apiPath}`;
   }
 
   private readResponse<T>(response: AxiosResponse) {
