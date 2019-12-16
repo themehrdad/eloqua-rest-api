@@ -1,10 +1,10 @@
 import * as axios from "axios";
-import IEloquaCredentials from "../eloqua-credentials";
-import IBaseUrl from "./base-url";
+import {IEloquaCredentials} from "../eloqua-credentials";
+import {IBaseUrl} from "./base-url-interfaces";
 
 const loginUrl = "https://login.eloqua.com/id";
 
-export default class BaseUrlClient {
+export class BaseUrlClient {
   public static get(
     credentials: IEloquaCredentials,
   ): Promise<IBaseUrl> {

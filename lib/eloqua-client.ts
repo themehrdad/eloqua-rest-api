@@ -1,10 +1,10 @@
-import IBaseUrl from "./base-urls/base-url";
-import BaseUrlClient from "./base-urls/base-url-client";
-import IEloquaCredentials from "./eloqua-credentials";
-import LandingPageClient from "./landing-pages/landing-pages-client";
-import RestClient from "./rest-client";
+import {BaseUrlClient} from "./base-urls/base-url-client";
+import {IBaseUrl} from "./base-urls/base-url-interfaces";
+import {IEloquaCredentials} from "./eloqua-credentials";
+import {LandingPageClient} from "./landing-pages/landing-pages-client";
+import {RestClient} from "./rest-client";
 
-export default class EloquaClient {
+export class EloquaClient {
   public static login(
     siteName: string,
     userName: string,

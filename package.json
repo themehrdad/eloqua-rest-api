@@ -1,13 +1,13 @@
 {
   "name": "eloqua-rest-api",
-  "version": "1.0.2",
+  "version": "1.0.7",
   "description": "A REST API client for Oracle Eloqua",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "yarn jest --testPathIgnorePatterns='e2e-tests/'",
     "e2e-test": "yarn jest --rootDir='lib/e2e-tests'",
-    "build": "tsc",
+    "build": "shx rm -rf ./dist && tsc",
     "prepare": "yarn build",
     "prepublishOnly": "yarn test"
   },
@@ -22,6 +22,7 @@
     "@types/node": "^12.12.16",
     "jest": "^24.9.0",
     "jest-extended": "^0.11.2",
+    "shelljs": "^0.8.3",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.3"
   },

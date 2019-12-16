@@ -1,9 +1,9 @@
 import Axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import IBaseUrl from "./base-urls/base-url";
-import IEloquaCredentials from "./eloqua-credentials";
+import {IBaseUrl} from "./base-urls/base-url-interfaces";
+import {IEloquaCredentials} from "./eloqua-credentials";
 import { IListRequestOptions, IListResponse } from "./rest-api-interfaces";
 
-export default class RestClient {
+export class RestClient {
   constructor(
     private credentials: IEloquaCredentials,
     private baseUrls: IBaseUrl,
@@ -40,7 +40,7 @@ export default class RestClient {
   }
 
   private makeStandardAbsoluteUrl(apiPath: string) {
-    return `${this.baseUrls.urls.base}${this.baseUrls.urls.apis.rest.standard}${apiPath}`;
+    return `${this.baseUrls.urls.base}${apiPath}`;
   }
 
   private readResponse<T>(response: AxiosResponse) {

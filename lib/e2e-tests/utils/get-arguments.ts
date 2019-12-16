@@ -1,4 +1,4 @@
-import IEloquaCredentials from "../../eloqua-credentials";
+import {IEloquaCredentials} from "../../eloqua-credentials";
 
 export default function getArguments(): IEloquaCredentials {
   const allArgs = parseArguments();

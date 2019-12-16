@@ -1,7 +1,7 @@
 import * as axios from "axios";
 import "jest-extended";
-import IEloquaCredentials from "../eloqua-credentials";
-import BaseUrlClient from "./base-url-client";
+import {IEloquaCredentials} from "../eloqua-credentials";
+import {BaseUrlClient} from "./base-url-client";
 
 describe("BaseUrlClient", () => {
   let axiosGetMock: jest.Mock;

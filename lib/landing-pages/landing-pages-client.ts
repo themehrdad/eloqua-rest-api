@@ -1,10 +1,10 @@
 import {IListRequestOptions, IListResponse} from "../rest-api-interfaces";
-import RestClient from "../rest-client";
+import {RestClient} from "../rest-client";
 import { ILandingPage } from "./landing-page-interfaces";
 
 const getListPath = "/api/REST/1.0/assets/landingPages";
 
-export default class LandingPageClient {
+export class LandingPageClient {
   constructor(private client: RestClient) { }
 
   public getLandingPages(

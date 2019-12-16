@@ -1,4 +1,4 @@
-export default interface IEloquaCredentials {
+export interface IEloquaCredentials {
   siteName: string;
   userName: string;
   password: string;
