@@ -17,6 +17,7 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - run: sudo npm install -g shx
       - checkout
 
       # Download and cache dependencies
