@@ -1,6 +1,6 @@
 {
   "name": "eloqua-rest-api",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A REST API client for Oracle Eloqua",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
