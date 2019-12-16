@@ -8,9 +8,15 @@ export interface IListResponse<T> {
 
 export interface IListRequestOptions {
   count?: number;
-  depth?: string;
+  depth?: Depth;
   lastUpdatedAt?: number;
   orderBy?: string;
   page?: number;
   search?: string;
+}
+
+export enum Depth {
+  minimal = "minimal",
+  partial = "partial",
+  complete = "complete",
 }
