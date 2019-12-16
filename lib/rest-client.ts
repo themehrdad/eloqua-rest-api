@@ -24,14 +24,19 @@ export default class RestClient {
     });
   }
 
-  private getRestConfig(options?: {[key: string]: any}): AxiosRequestConfig {
-    return {
+  private getRestConfig(options?: { [key: string]: any }): AxiosRequestConfig {
+    const config: AxiosRequestConfig = {
       auth: {
         password: this.credentials.password,
         username: `${this.credentials.siteName}\\${this.credentials.userName}`,
       },
-      params: options,
     };
+
+    if (options) {
+      config.params = options;
+    }
+
+    return config;
   }
 
   private makeStandardAbsoluteUrl(apiPath: string) {
