@@ -27,7 +27,7 @@ export interface IEmail {
   forms?: IForm[];
   htmlContent?: IHtmlContent;
   hyperlinks?: IHyperlink[];
-  id: string;
+  id: number;
   images?: IImage[];
   isPlainTextEditable?: string;
   isTracked?: string;
