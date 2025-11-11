@@ -16,7 +16,7 @@ describe("BaseUrlClient", () => {
 
   it("gets the base urls from eloqua", (done) => {
     const response: axios.AxiosResponse<any> = {
-      config: {},
+      config: { headers: {} as any } as any,
       data: {},
       headers: {},
       status: 200,
@@ -36,7 +36,7 @@ describe("BaseUrlClient", () => {
       userName: "user",
     };
     const response: axios.AxiosResponse<any> = {
-      config: {},
+      config: { headers: {} as any } as any,
       data: {},
       headers: {},
       status: 200,
@@ -64,7 +64,7 @@ describe("BaseUrlClient", () => {
 
   it("when eloqua responds with 200 but it's actually an error", (done) => {
     const response: axios.AxiosResponse<any> = {
-      config: {},
+      config: { headers: {} as any } as any,
       data: undefined,
       headers: {},
       status: 200,

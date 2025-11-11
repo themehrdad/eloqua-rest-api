@@ -32,7 +32,7 @@ describe("RestClient", () => {
 
     beforeEach(() => {
       response = {
-        config: {},
+        config: { headers: {} as any } as any,
         data: [],
         headers: {},
         status: 200,
@@ -129,7 +129,7 @@ describe("RestClient", () => {
     let response: AxiosResponse;
     beforeEach(() => {
       response = {
-        config: {},
+        config: { headers: {} as any } as any,
         data: [],
         headers: {},
         status: 200,
