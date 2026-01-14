@@ -15,7 +15,7 @@
   "license": "MIT",
   "repository": "https://github.com/themehrdad/eloqua-rest-api.git",
   "dependencies": {
-    "axios": "^0.26.0"
+    "axios": "^0.30.2"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
